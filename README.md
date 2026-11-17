@@ -15,6 +15,7 @@ throw, break or predict before you are told the answer. No account, no ads, noth
 
 | Subject | Course | Lessons |
 | --- | --- | --- |
+| Math | Numbers for every day | Solving equations · Negative numbers · The coordinate plane · Percents · Proportion |
 | Math | Lines, triangles and chance | Slope · The right triangle · Chance |
 | Math | Fractions, functions, dice | Fractions · Functions · Two dice |
 | Physics | Throw, swing, balance | How far does it fly? · The pendulum · The lever |
@@ -23,7 +24,7 @@ throw, break or predict before you are told the answer. No account, no ads, noth
 | AI | Chains | A chain is a pipe · Order matters · Swap a part · Streaming |
 | AI | Graphs that decide | State · The graph decides · Loops · A human in the loop |
 
-24 lessons, 51 screens. This is a start, not the whole of "everything": the site is built so that a new subject is one more file. What comes next is listed in [the roadmap](https://github.com/hclivess/steps/issues/1).
+29 lessons, 66 screens. This is a start, not the whole of "everything": the site is built so that a new subject is one more file. What comes next is listed in [the roadmap](https://github.com/hclivess/steps/issues/1).
 
 ## How a lesson works
 

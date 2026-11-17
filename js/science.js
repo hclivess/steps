@@ -43,6 +43,13 @@ export const roots = (p, q) => (q > 0 ? [] : q === 0 ? [p] : [p - Math.sqrt(-q),
 export const waysToSum = (sum) => (sum < 2 || sum > 12 ? 0 : 6 - Math.abs(sum - 7));
 export const atLeastOnce = (chance, tries) => 1 - Math.pow(1 - chance, tries);
 
+// everyday numbers
+export const solveLinear = (a, b, c, d) => (a === c ? null : (d - b) / (a - c));   // the x in  a·x + b = c·x + d
+export const percentOf = (percent, whole) => (percent * whole) / 100;
+export const changeBy = (value, percent) => (value * (100 + percent)) / 100;
+export const scaleTo = (amount, from, to) => (amount * to) / from;                 // keep amount ÷ from the same
+export const mirror = (p, axis) => (axis === 'upright' ? { x: -p.x, y: p.y } : { x: p.x, y: -p.y });
+
 // Waves: speed = frequency × wavelength. The height of a wave travelling right, at place x and time t.
 export const wavelength = (speed, frequency) => speed / frequency;
 export const waveAt = (length, frequency, x, t, phaseDeg = 0) => Math.sin(2 * Math.PI * (x / length - frequency * t) + rad(phaseDeg));

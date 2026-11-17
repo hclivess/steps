@@ -162,14 +162,14 @@ function machine(host, api) {
 }
 
 // A squared-paper plane. Gives the drawing of the grid and the two functions that place a point on it.
-function plane({ x0, x1, y0, y1, S = 30 }) {
+export function plane({ x0, x1, y0, y1, S = 30 }) {
   const X = (x) => (x - x0) * S, Y = (y) => (y1 - y) * S;
   let grid = '';
   for (let x = x0; x <= x1; x++) grid += `<line class="${x === 0 ? 'axis' : 'gridline'}" x1="${X(x)}" y1="0" x2="${X(x)}" y2="${Y(y0)}"/>`;
   for (let y = y0; y <= y1; y++) grid += `<line class="${y === 0 ? 'axis' : 'gridline'}" x1="0" y1="${Y(y)}" x2="${X(x1)}" y2="${Y(y)}"/>`;
   return { X, Y, grid, box: `-6 -6 ${X(x1) + 12} ${Y(y0) + 12}` };
 }
-const sign = (v) => (v < 0 ? `− ${-v}` : `+ ${v}`);
+export const sign = (v) => (v < 0 ? `− ${-v}` : `+ ${v}`);
 
 function lineFit(host, api) {
   const P = plane({ x0: -6, x1: 6, y0: -6, y1: 6, S: 26 });

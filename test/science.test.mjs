@@ -4,6 +4,25 @@ import assert from 'node:assert/strict';
 import { throwRange, pendulumPeriod, hypotenuse, slope, coin, turning, die, sameFraction, roots, waysToSum, atLeastOnce,
   wavelength, waveAt, current, inSeries, inParallel, EARTH, circularSpeed, escapeSpeed, farSide, staysUp, isRound, orbitPath } from '../js/science.js';
 
+test('foundations: every task has its answer on the controls', async () => {
+  const { solveLinear, percentOf, changeBy, scaleTo, mirror } = await import('../js/science.js');
+  const steps = (min, max, step) => Array.from({ length: Math.round((max - min) / step) + 1 }, (_, i) => min + i * step);
+  assert.equal(solveLinear(3, 2, 0, 14), 4);
+  assert.deepEqual(steps(0, 10, 1).filter((x) => 5 * x - 3 === 2 * x + 9), [solveLinear(5, -3, 2, 9)]);
+  assert.equal(solveLinear(2, 5, 0, 17), 6);
+  assert.deepEqual(steps(-10, 10, 1).filter((a) => 3 + a === -4), [-7]);
+  const pairs = [];
+  for (const a of steps(-6, -1, 1)) for (const b of steps(-6, -1, 1)) if (a * b === 12) pairs.push(`${a}×${b}`);
+  console.log('two negative numbers that make 12:', pairs.join(' '));
+  assert.ok(pairs.length > 0);
+  assert.deepEqual(mirror({ x: 4, y: 3 }, 'upright'), { x: -4, y: 3 });
+  assert.deepEqual(steps(0, 100, 5).filter((p) => percentOf(p, 80) === 20), [25]);
+  assert.deepEqual(steps(0, 50, 1).filter((c) => changeBy(changeBy(200, 25), -c) === 200), [20]);
+  assert.equal(changeBy(changeBy(100, 50), -50), 75);
+  assert.ok(steps(100, 1000, 50).includes(scaleTo(300, 4, 10)));
+  assert.deepEqual(steps(0.5, 3, 0.25).filter((k) => [[2, 3], [4, 6], [6, 9]].every(([x, y]) => k * x === y)), [1.5]);
+});
+
 test('fractions, the curve, the dice', () => {
   const same = [];
   for (let d = 1; d <= 12; d++) for (let n = 0; n <= d; n++) if (sameFraction(n, d, 3, 4) && d !== 4) same.push(`${n}/${d}`);
