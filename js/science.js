@@ -43,6 +43,29 @@ export const roots = (p, q) => (q > 0 ? [] : q === 0 ? [p] : [p - Math.sqrt(-q),
 export const waysToSum = (sum) => (sum < 2 || sum > 12 ? 0 : 6 - Math.abs(sum - 7));
 export const atLeastOnce = (chance, tries) => 1 - Math.pow(1 - chance, tries);
 
+// logic: 1 is true, 0 is false
+export const GATES = { AND: (a, b) => a & b, OR: (a, b) => a | b, XOR: (a, b) => a ^ b };
+export const NOT = (a) => 1 - a;
+export const ROWS = [[0, 0], [0, 1], [1, 0], [1, 1]];
+export const table = (fn) => ROWS.map(([a, b]) => fn(a, b));
+export const sameTable = (f, g) => table(f).join() === table(g).join();
+export const fullAdder = (a, b, c) => ({ sum: GATES.XOR(GATES.XOR(a, b), c), carry: GATES.OR(GATES.AND(a, b), GATES.AND(GATES.XOR(a, b), c)) });
+export function addBits(a, b, n) {                          // n full adders in a chain, lowest bit first
+  const bits = [], carries = [];
+  let c = 0;
+  for (let i = 0; i < n; i++) { const o = fullAdder((a >> i) & 1, (b >> i) & 1, c); bits.push(o.sum); carries.push(o.carry); c = o.carry; }
+  return { bits, carries, value: bits.reduce((s, bit, i) => s + (bit << i), 0) + (c << n) };
+}
+// three boxes, one holds the gold, each label says something about where it is
+export const BOXES = [
+  { text: 'The gold is in this box.', says: (gold) => gold === 0 },
+  { text: 'The gold is not in this box.', says: (gold) => gold !== 1 },
+  { text: 'The gold is not in box 1.', says: (gold) => gold !== 0 },
+];
+export const trueLabels = (gold) => BOXES.map((b, i) => (b.says(gold) ? i : -1)).filter((i) => i >= 0);
+// A says "we are both liars": a truth-teller's sentence must be true, a liar's must be false
+export const bothLiarsFits = (aHonest, bHonest) => aHonest === (!aHonest && !bHonest);
+
 // everyday numbers
 export const solveLinear = (a, b, c, d) => (a === c ? null : (d - b) / (a - c));   // the x in  a·x + b = c·x + d
 export const percentOf = (percent, whole) => (percent * whole) / 100;

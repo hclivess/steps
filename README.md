@@ -2,7 +2,7 @@
 
 **Learn by doing. Free, for everyone.** → **https://hclivess.github.io/steps/**
 
-Short interactive lessons in math, physics and AI. One idea per screen, and on every screen something to drag,
+Short interactive lessons in math, logic, physics and AI. One idea per screen, and on every screen something to drag,
 throw, break or predict before you are told the answer. No account, no ads, nothing to install: it is a plain web page.
 
 ![The home page: courses in math, physics and AI](docs/home.png)
@@ -18,13 +18,14 @@ throw, break or predict before you are told the answer. No account, no ads, noth
 | Math | Numbers for every day | Solving equations · Negative numbers · The coordinate plane · Percents · Proportion |
 | Math | Lines, triangles and chance | Slope · The right triangle · Chance |
 | Math | Fractions, functions, dice | Fractions · Functions · Two dice |
+| Logic | True, false and switches | And, or, not · Truth and lies · Digital circuits |
 | Physics | Throw, swing, balance | How far does it fly? · The pendulum · The lever |
 | Physics | Waves, circuits, orbits | Waves · Circuits · Orbits |
 | AI | How an AI looks things up | Why look things up? · Chunks · Meaning as numbers · Search |
 | AI | Chains | A chain is a pipe · Order matters · Swap a part · Streaming |
 | AI | Graphs that decide | State · The graph decides · Loops · A human in the loop |
 
-29 lessons, 66 screens. This is a start, not the whole of "everything": the site is built so that a new subject is one more file. What comes next is listed in [the roadmap](https://github.com/hclivess/steps/issues/1).
+32 lessons, 76 screens. This is a start, not the whole of "everything": the site is built so that a new subject is one more file. What comes next is listed in [the roadmap](https://github.com/hclivess/steps/issues/1).
 
 ## How a lesson works
 

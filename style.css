@@ -55,6 +55,11 @@ button:hover, .button:hover { border-color: var(--accent); }
 .primary { background: var(--accent); border-color: var(--accent); color: #fff; }
 @media (prefers-color-scheme: dark) { .primary { color: #0c1415; } }
 .off { opacity: .35; cursor: not-allowed; }
+button.toggle.on { background: var(--accent-soft); border-color: var(--accent); }
+.truth { border-collapse: collapse; font-family: var(--mono); font-size: 14px; margin: 4px 0 12px; }
+.truth th, .truth td { border: 1px solid var(--line); padding: 5px 12px; text-align: center; }
+.truth td.on { background: var(--good-soft); } .truth td.bad { background: var(--warm-soft); }
+.row + .row { margin-top: 8px; }
 .row { display: flex; gap: 10px; flex-wrap: wrap; align-items: end; }
 .row .slider { flex: 1; min-width: 180px; }
 .choices { display: grid; gap: 8px; }

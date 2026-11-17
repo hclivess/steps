@@ -4,6 +4,27 @@ import assert from 'node:assert/strict';
 import { throwRange, pendulumPeriod, hypotenuse, slope, coin, turning, die, sameFraction, roots, waysToSum, atLeastOnce,
   wavelength, waveAt, current, inSeries, inParallel, EARTH, circularSpeed, escapeSpeed, farSide, staysUp, isRound, orbitPath } from '../js/science.js';
 
+test('logic: each puzzle has exactly one answer and the gates add', async () => {
+  const { GATES, NOT, ROWS, sameTable, fullAdder, addBits, trueLabels, bothLiarsFits } = await import('../js/science.js');
+  assert.ok(sameTable((a, b) => NOT(GATES.AND(a, b)), (a, b) => GATES.OR(NOT(a), NOT(b))));
+  assert.ok(!sameTable((a, b) => NOT(GATES.AND(a, b)), (a, b) => GATES.AND(NOT(a), NOT(b))));
+  assert.deepEqual([0, 1, 2].filter((gold) => trueLabels(gold).length === 1), [1]);
+  const islands = [];
+  for (const a of [true, false]) for (const b of [true, false]) if (bothLiarsFits(a, b)) islands.push(`${a},${b}`);
+  assert.deepEqual(islands, ['false,true']);
+  const xor = [];
+  for (const g1 of ['AND', 'OR']) for (const g2 of ['AND', 'OR']) if (sameTable((a, b) => GATES.AND(GATES[g1](a, b), NOT(GATES[g2](a, b))), GATES.XOR)) xor.push(g1 + '/' + g2);
+  assert.deepEqual(xor, ['OR/AND']);
+  const half = [];
+  for (const c of Object.keys(GATES)) for (const o of Object.keys(GATES)) if (ROWS.every(([a, b]) => GATES[c](a, b) * 2 + GATES[o](a, b) === a + b)) half.push(c + '/' + o);
+  assert.deepEqual(half, ['AND/XOR']);
+  for (const [a, b] of ROWS) for (const c of [0, 1]) { const o = fullAdder(a, b, c); assert.equal(o.carry * 2 + o.sum, a + b + c); }
+  const all = [];
+  for (let a = 0; a <= 7; a++) for (let b = 0; b <= 7; b++) { const r = addBits(a, b, 3); assert.equal(r.value, a + b); if (r.carries.every(Boolean)) all.push(`${a}+${b}`); }
+  console.log('pairs where all three columns carry:', all.length, 'e.g.', all[0]);
+  assert.ok(all.length > 0);
+});
+
 test('foundations: every task has its answer on the controls', async () => {
   const { solveLinear, percentOf, changeBy, scaleTo, mirror } = await import('../js/science.js');
   const steps = (min, max, step) => Array.from({ length: Math.round((max - min) / step) + 1 }, (_, i) => min + i * step);
