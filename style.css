@@ -85,6 +85,10 @@ input[type=text] { display: block; width: 100%; font: inherit; padding: 8px 10px
 .ground, .rod, .tick { stroke: var(--ink); stroke-width: 2; }
 .ball { fill: var(--warm); } .target { fill: var(--good); }
 .beam { fill: var(--ink); } .weight { fill: var(--accent); }
+.piece { fill: var(--card); stroke: var(--ink); stroke-width: 1.5; } .piece.on { fill: var(--accent); } .piece.warm { fill: var(--warm); }
+.cut { stroke: var(--ink); stroke-width: 1.5; } .axis { stroke: var(--ink); stroke-width: 1.5; }
+.wire { stroke: var(--ink); stroke-width: 3; fill: none; } .charge { fill: var(--accent); } .glow { fill: var(--warm); }
+.lamp { fill: var(--card); stroke: var(--ink); stroke-width: 2; } .planet { fill: var(--accent-soft); stroke: var(--accent); stroke-width: 2; }
 .coins { display: flex; flex-wrap: wrap; gap: 4px; min-height: 28px; }
 .coins i { width: 24px; height: 24px; border-radius: 50%; display: grid; place-items: center; font: 700 12px var(--mono); font-style: normal; }
 .coins .heads { background: var(--accent); color: #fff; } .coins .tails { background: var(--line); color: var(--ink); }
