@@ -30,7 +30,7 @@ throw, break or predict before you are told the answer. No account, no ads, noth
 - **Nothing is faked.** Every picture and every "correct" is computed on the spot from the formula or the small engine in `js/`. The answers are not typed into the lessons.
 
 The AI lessons use a toy model and a toy word-counting embedder so that everything runs in the page. The lessons say so where it matters.
-The same ideas with the real libraries, in Python: [rag-sqlite](https://github.com/hclivess/rag-sqlite),
+The same ideas with the real libraries, in Python: [rag-steps](https://github.com/hclivess/rag-steps),
 [langchain-steps](https://github.com/hclivess/langchain-steps), [langgraph-steps](https://github.com/hclivess/langgraph-steps).
 
 ## Add a lesson
